@@ -80,9 +80,16 @@ const FormAddCopia = () => {
                     ))
                   }
                 </select>
-                { errors.nombre && <p className="errors">{errors.nombre}</p> }
+                { errors.idLibro && <p className="errors">{errors.idLibro}</p> }
               </div>
-            <button>Añadir Copía</button>
+
+              {
+                Object.keys(errors).length !== 0 ? (
+                  <button disabled={true} id="error">
+                    <p>Completar el formulario correctamente</p>
+                  </button>
+                ) : (<button>Añadir Copía</button>)
+              }
           </form>
         </div>
       </div>

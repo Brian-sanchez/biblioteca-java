@@ -164,11 +164,11 @@ const FormEditPrestamo = () => {
                 <label>Elegir copía del libro</label>
                 <select onChange={handleInputChangeCopia} value={input.copia.id}>
                   <option>Seleccione la copia</option>
-                      {
-                        copiaByIdLibro && copiaByIdLibro.map(b => (
-                          <option key={b.id} value={b.id}>ID: {b.id} - ID Libro: {b.idLibro}</option>
-                        ))
-                      }
+                    {
+                      copiaByIdLibro.length !== 0 ? copiaByIdLibro.map(b => (
+                        <option key={b.id} value={b.id}>ID: {b.id} - ID Libro: {b.idLibro}</option>
+                      )) : <option disabled={true}>Ese libro no tiene copias</option>
+                    }
                   </select>
                 { errors.copia && <p className="errors">{errors.copia}</p> }
               </div>

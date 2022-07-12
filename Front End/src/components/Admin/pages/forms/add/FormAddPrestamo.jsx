@@ -113,6 +113,7 @@ const FormAddPrestamo = () => {
 
     dispatch(getAllPrestamos());
     navigate("/admin");
+    dispatch(getAllPrestamos());
   };
 
   return (
@@ -155,17 +156,23 @@ const FormAddPrestamo = () => {
             <div className="formInput">
               <label>Elegir copía del libro</label>
               <select onChange={handleInputChangeCopia} value={input.copia.id}>
-                <option>Seleccione la copia</option>
+                <option value="" >Seleccione la copia</option>
                     {
-                      copiaByIdLibro && copiaByIdLibro.map(b => (
+                      copiaByIdLibro.length !== 0 ? copiaByIdLibro.map(b => (
                         <option key={b.id} value={b.id}>ID: {b.id} - ID Libro: {b.idLibro}</option>
-                      ))
+                      )) : <option disabled={true}>Ese libro no tiene copias</option>
                     }
                 </select>
               { errors.copia && <p className="errors">{errors.copia}</p> }
             </div>
 
-            <button>Añadir Prestamo</button>
+            {
+              Object.keys(errors).length !== 0 ? (
+                <button disabled={true} id="error">
+                  <p>Completar el formulario correctamente</p>
+                </button>
+              ) : (<button>Añadir Prestamo</button>)
+            }
           </form>
         </div>
       </div>

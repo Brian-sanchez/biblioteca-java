@@ -83,14 +83,22 @@ const FormAddLector = () => {
             <div className="formInput">
               <label>Telefono</label>
               <input type="text" placeholder="Ingrese el nombre del Lector" name="telefono" onChange={handleInputChange} value={input.telefono}/>
+              { errors.telefono && <p className="errors">{errors.telefono}</p> }
             </div>
 
             <div className="formInput">
               <label>Direccion</label>
               <input type="text" placeholder="Ingrese el nombre del Lector" name="direccion" onChange={handleInputChange} value={input.direccion}/>
+              { errors.direccion && <p className="errors">{errors.direccion}</p> }
             </div>
 
-            <button>Añadir lector</button>
+            {
+              Object.keys(errors).length !== 0 ? (
+                <button disabled={true} id="error">
+                  <p>Completar el formulario correctamente</p>
+                </button>
+              ) : (<button>Añadir lector</button>)
+            }
           </form>
         </div>
       </div>
@@ -103,7 +111,17 @@ export function validateForm(input) {
   let errors = {};
 
   if (!input.nombre) {
-    errors.nombre = "El nombre es requerido";
+    errors.nombre = "El nombre del lector es requerido";
+  }
+
+  if (!input.direccion) {
+    errors.direccion = "La direccion del lector es requerida";
+  }
+
+  if (!input.telefono) {
+    errors.telefono = "El telefono del lector es requerido";
+  } else if (!/^\d+$/.test(input.telefono)) {
+    errors.telefono = "Escribir solo numeros"
   }
 
   return errors;

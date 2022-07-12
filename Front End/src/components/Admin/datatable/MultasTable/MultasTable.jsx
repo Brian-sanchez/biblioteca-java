@@ -41,7 +41,7 @@ const MultasTable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        <Link to="/users/new" className="link">
+        <Link to="/admin/multas" className="link">
           Añadir Multa
         </Link>
       </div>

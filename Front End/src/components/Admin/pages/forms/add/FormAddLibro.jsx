@@ -25,9 +25,10 @@ const FormAddLibro = () => {
     image: "",
     autor: "",
     autorNacionalidad: "",
-    autorNacimiento: "",
-    estado: ""
+    autorNacimiento: ""
   });
+
+  console.log(input)
 
   const [errors, setErrors] = useState({ name: "" });
 
@@ -47,7 +48,12 @@ const FormAddLibro = () => {
     setInput({
       ...input,
       [e.target.name]: new Date(e.target.value).toISOString().slice(0, 10).replace('T', ' ')
-    })
+    });
+
+    setErrors(validateForm({
+      ...input,
+      [e.target.name]: e.target.value
+    }));
   };
 
   const swalStyle = Swal.mixin({
@@ -75,8 +81,7 @@ const FormAddLibro = () => {
       image: "",
       autor: "",
       autorNacionalidad: "",
-      autorNacimiento: "",
-      estado: ""
+      autorNacimiento: ""
     });
 
     alert("El libro a sido subido exitosamente!");
@@ -122,45 +127,58 @@ const FormAddLibro = () => {
             <div className="formInput">
               <label>Tipo</label>
               <select name="tipo" onChange={handleInputChange} value={input.tipo}>
-                <option>Seleccione el tipo del libro</option>
-                <option value="novela">Novela</option>
-                <option value="teatro">Teatro</option>
-                <option value="poesia">Poesia</option>
-                <option value="ensayo">Ensayo</option>
+                <option value="">Seleccione el tipo del libro</option>
+                <option value="NOVELA">Novela</option>
+                <option value="TEATRO">Teatro</option>
+                <option value="POESIA">Poesia</option>
+                <option value="ENSAYO">Ensayo</option>
               </select>
+              { errors.tipo && <p className="errors">{errors.tipo}</p> }
             </div>
 
             <div className="formInput">
               <label>Editorial</label>
               <input type="text" placeholder="Ingrese el nombre del Lector" name="editorial" onChange={handleInputChange} value={input.editorial}/>
+              { errors.editorial && <p className="errors">{errors.editorial}</p> }
             </div>
 
             <div className="formInput">
               <label>Año de Publicacion</label>
               <input type="number" min="1000" max="2023" placeholder="Ingrese el año de publicacion del Libro" name="anyo" onChange={handleInputChange} value={input.anyo}/>
+              { errors.anyo && <p className="errors">{errors.anyo}</p> }
             </div>
 
             <div className="formInput">
               <label>Imagen</label>
               <input type="text" placeholder="Ingrese el url de la portada del libro" name="image" onChange={handleInputChange} value={input.image}/>
+              { errors.image && <p className="errors">{errors.image}</p> }
             </div>
 
             <div className="formInput">
               <label>Autor</label>
               <input type="text" placeholder="Ingrese el nombre del Autor del libro" name="autor" onChange={handleInputChange} value={input.autor}/>
+              { errors.autor && <p className="errors">{errors.autor}</p> }
             </div>
 
             <div className="formInput">
               <label>Nacionalidad del Autor</label>
               <input type="text" placeholder="Ingrese la nacionalidad del autor" name="autorNacionalidad" onChange={handleInputChange} value={input.autorNacionalidad}/>
+              { errors.autorNacionalidad && <p className="errors">{errors.autorNacionalidad}</p> }
             </div>
 
             <div className="formInput">
               <label>Fecha de nacimiento del Autor</label>
               <input type="date" placeholder="Ingrese la fecha de nacimiento del autor" name="autorNacimiento" onChange={fecha} value={input.autorNacimiento}/>
+              { errors.autorNacimiento && <p className="errors">{errors.autorNacimiento}</p> }
             </div>
 
-            <button>Subir Libro</button>
+            {
+              Object.keys(errors).length !== 0 ? (
+                <button disabled={true} id="error">
+                  <p>Completar el formulario correctamente</p>
+                </button>
+              ) : (<button>Subir Libro</button>)
+            }
           </form>
         </div>
       </div>
@@ -172,9 +190,41 @@ const FormAddLibro = () => {
 export function validateForm(input) {
   let errors = {};
 
-  if (!input.nombre) {
-    errors.nombre = "El nombre es requerido";
-  }
+  if (!input.titulo) {
+    errors.titulo = "El titulo del libro es requerido";
+  };
+
+  if (!input.tipo) {
+    errors.tipo = "El tipo del libro es requerido";
+  };
+
+  if (!input.editorial) {
+    errors.editorial = "La editorial del libro es requerida";
+  };
+  
+  if (!input.anyo) {
+    errors.anyo = "El año de publicacion del libro es requerido";
+  };
+
+  if (!input.image) {
+    errors.image = "La imagen del libro es requerida";
+  };
+
+  if (!input.autor) {
+    errors.autor = "El nombre del autor del libro es requerido";
+  } else if (/^\d+$/.test(input.autor)) {
+    errors.autor = "No escribir numeros";
+  };
+
+  if (!input.autorNacionalidad) {
+    errors.autorNacionalidad = "La nacionalidad del autor del libro es requerido";
+  } else if (!/^\d+$/.test(input.autorNacionalidad)) {
+    errors.autorNacionalidad = "No escribir numeros";
+  };
+
+  if (!input.autorNacimiento) {
+    errors.autorNacimiento = "La fecha de nacimiento del autor del libro es requerido";
+  };
 
   return errors;
 };
