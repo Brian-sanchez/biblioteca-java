@@ -1,6 +1,9 @@
+import axios from "axios";
+
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import 'sweetalert2/src/sweetalert2.scss';
-import axios from "axios";
+
+import "../../components/Admin/pages/forms/add/formAddStyles.scss"
 
 const swalStyle = Swal.mixin({
   customClass: {

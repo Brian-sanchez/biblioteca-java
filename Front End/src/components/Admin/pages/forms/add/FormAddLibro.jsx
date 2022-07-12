@@ -213,13 +213,13 @@ export function validateForm(input) {
   if (!input.autor) {
     errors.autor = "El nombre del autor del libro es requerido";
   } else if (/^\d+$/.test(input.autor)) {
-    errors.autor = "No escribir numeros";
+    errors.autor = "No escribir numeros!!";
   };
 
   if (!input.autorNacionalidad) {
     errors.autorNacionalidad = "La nacionalidad del autor del libro es requerido";
-  } else if (!/^\d+$/.test(input.autorNacionalidad)) {
-    errors.autorNacionalidad = "No escribir numeros";
+  } else if (/^\d+$/.test(input.autorNacionalidad)) {
+    errors.autorNacionalidad = "No escribir numeros!!";
   };
 
   if (!input.autorNacimiento) {
