@@ -116,7 +116,7 @@ export function addLector(lector) {
       dispatch({ type: "POST_ACTION", payload: "true" });
       const response = await axios.post("http://localhost:8081/api/lectores", lector);
       console.log(response);
-      Swal.fire(
+      swalStyle.fire(
         'Excelente!',
         'El lector ha sido creado exitosamente',
         'success'
@@ -138,7 +138,7 @@ export function addCopia(copia) {
       dispatch({ type: "POST_ACTION", payload: "true" });
       const response = await axios.post("http://localhost:8081/api/copias", copia);
       console.log(response);
-      Swal.fire(
+      swalStyle.fire(
         'Excelente!',
         'La copia ha sido creado exitosamente',
         'success'
@@ -160,7 +160,7 @@ export function addLibro(libro) {
       dispatch({ type: "POST_ACTION", payload: "true" });
       const response = await axios.post("http://localhost:8081/api/libros", libro);
       console.log(response);
-      Swal.fire(
+      swalStyle.fire(
         'Excelente!',
         'El libro ha sido creado exitosamente',
         'success'
@@ -182,7 +182,7 @@ export function addPrestamo(prestamo) {
       dispatch({ type: "POST_ACTION", payload: "true" });
       const response = await axios.post("http://localhost:8081/api/prestamos/prestar", prestamo);
       console.log(response);
-      Swal.fire(
+      swalStyle.fire(
         'Excelente!',
         'El prestamo ha sido creado exitosamente',
         'success'
@@ -204,7 +204,7 @@ export function addMulta(multa) {
       dispatch({ type: "POST_ACTION", payload: "true" });
       const response = await axios.post("http://localhost:8081/api/multas", multa);
       console.log(response);
-      Swal.fire(
+      swalStyle.fire(
         'Excelente!',
         'La multa ha sido creado exitosamente',
         'success'
@@ -220,7 +220,7 @@ export function addMulta(multa) {
 export function editLector(lector, id) {
   return async function () {
     const updated = await axios.put(`http://localhost:8081/api/lectores/${id}`, lector);
-    Swal.fire(
+    swalStyle.fire(
       'Excelente!',
       'Se ha editado el lector exitosamente',
       'success'
@@ -235,7 +235,7 @@ export function editLector(lector, id) {
 export function editLibro(libro, id) {
   return async function () {
     const updated = await axios.put(`http://localhost:8081/api/libros/${id}`, libro);
-    Swal.fire(
+    swalStyle.fire(
       'Excelente!',
       'Se ha editado el libro exitosamente',
       'success'
@@ -250,7 +250,7 @@ export function editLibro(libro, id) {
 export function editCopia(copia, id) {
   return async function () {
     const updated = await axios.put(`http://localhost:8081/api/libros/${id}`, copia);
-    Swal.fire(
+    swalStyle.fire(
       'Excelente!',
       'Se ha editado la copia exitosamente',
       'success'
@@ -265,7 +265,7 @@ export function editCopia(copia, id) {
 export function editPrestamo(prestamo, id) {
   return async function () {
     const updated = await axios.put(`http://localhost:8081/api/prestamos/edit/${id}`, prestamo);
-    Swal.fire(
+    swalStyle.fire(
       'Excelente!',
       'Se ha editado el prestamo exitosamente',
       'success'
@@ -280,7 +280,7 @@ export function editPrestamo(prestamo, id) {
 export function devolverPrestamo(id) {
   return async function () {
     const updated = await axios.put(`http://localhost:8081/api/prestamos/devolver/${id}`);
-    Swal.fire(
+    swalStyle.fire(
       'Excelente!',
       'Se ha devuelto el prestamo exitosamente',
       'success'
@@ -295,7 +295,7 @@ export function devolverPrestamo(id) {
 export function editMulta(multa, id) {
   return async function () {
     const updated = await axios.put(`http://localhost:8081/api/multas/edit/${id}`, multa);
-    Swal.fire(
+    swalStyle.fire(
       'Excelente!',
       'Se ha editado la multa exitosamente',
       'success'

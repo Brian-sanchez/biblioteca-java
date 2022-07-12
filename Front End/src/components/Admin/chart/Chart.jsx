@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   AreaChart,
   Area,
@@ -9,16 +10,18 @@ import {
 
 import "./chart.scss";
 
-const data = [
-  { name: "Enero", Total: 2 },
-  { name: "Febrero", Total: 5 },
-  { name: "Marzo", Total: 7 },
-  { name: "Abril", Total: 10 },
-  { name: "Mayo", Total: 14 },
-  { name: "Junio", Total: 30 },
-];
-
 const Chart = ({ aspect, title }) => {
+  const prestamos = useSelector((state) => state.allPrestamos);
+  
+  const data = [
+    { name: "Febrero", Total: 5 },
+    { name: "Marzo", Total: 2 },
+    { name: "Abril", Total: 0 },
+    { name: "Mayo", Total: 2 },
+    { name: "Junio", Total: 3 },
+    { name: "Julio", Total: prestamos.length },
+  ];
+  
   return (
     <div className="chart">
       <div className="title">{title}</div>
@@ -35,9 +38,11 @@ const Chart = ({ aspect, title }) => {
               <stop offset="95%" stopColor="#424242" stopOpacity={0} />
             </linearGradient>
           </defs>
+          
           <XAxis dataKey="name" stroke="gray" />
           <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
           <Tooltip />
+
           <Area
             type="monotone"
             dataKey="Total"

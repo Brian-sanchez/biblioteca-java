@@ -5,6 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPrestamos, deletePrestamoById, devolverPrestamo } from "../../../../Redux/actions/index";
 
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
+
 import "../datatable.scss";
 
 const PrestamosTable = () => {
@@ -16,6 +19,13 @@ const PrestamosTable = () => {
   });
 
   const [data, setData] = useState(prestamos);
+
+  const swalStyle = Swal.mixin({
+    customClass: {
+      title: 'swal-title',
+      htmlContainer: 'swal-text',
+    }
+  });
 
   const actionColumn = [
     {
@@ -45,7 +55,18 @@ const PrestamosTable = () => {
 
   const handleDevolver = (id) => {
     const idPrestamo = prestamoID.find(e => e === id);
-    dispatch(devolverPrestamo(idPrestamo));
+    const prestamoFilter = prestamos.filter(e => e.id === idPrestamo);
+
+    if (prestamoFilter[0].copia.estado === "BIBLIOTECA") {
+      swalStyle.fire(
+        'Devolver otra vez?',
+        'No se puede devolver algo que ya se a devuelto',
+        'question'
+      )
+    } else {
+      dispatch(devolverPrestamo(idPrestamo));
+    };
+
     dispatch(getAllPrestamos());
     navigate("/admin");
   }
@@ -61,6 +82,7 @@ const PrestamosTable = () => {
           Añadir Prestamo
         </Link>
       </div>
+
       <DataGrid
         className="datagrid"
         rows={data}

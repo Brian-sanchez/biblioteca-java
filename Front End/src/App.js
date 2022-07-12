@@ -40,6 +40,7 @@ function App() {
                 element={<FormEditLector/>}
               />
             </Route>
+
             <Route path="/admin/libros">
               <Route index element={<LibrosPage/>} />
               <Route
@@ -51,6 +52,7 @@ function App() {
                 element={<FormEditLibro/>}
               />
             </Route>
+
             <Route path="/admin/copias">
               <Route index element={<CopiasPage/>} />
               <Route
@@ -62,6 +64,7 @@ function App() {
                 element={<FormEditCopia/>}
               />
             </Route>
+
             <Route path="/admin/prestamos">
               <Route index element={<PrestamosPage/>} />
               <Route
@@ -73,6 +76,7 @@ function App() {
                 element={<FormEditPrestamo/>}
               />
             </Route>
+
             <Route path="/admin/multas">
               <Route index element={<MultasPage/>} />
             </Route>
@@ -80,6 +84,6 @@ function App() {
         </Routes>
     </div>
   );
-}
+};
 
 export default App;
