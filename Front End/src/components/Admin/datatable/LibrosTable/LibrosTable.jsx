@@ -4,19 +4,18 @@ import { librosColumns } from "./libroData";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllBooks } from "../../../../Redux/actions/index";
+import { getAllBooks, deleteLibroById } from "../../../../Redux/actions/index";
 
 import "../datatable.scss";
 
 const LibrosTable = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.allBooks);
+  const libroId = books.map((l) => {
+    return l.id;
+  })
 
   const [data, setData] = useState(books);
-
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
-  };
 
   const actionColumn = [
     {
@@ -34,6 +33,13 @@ const LibrosTable = () => {
       },
     },
   ];
+
+  const handleDelete = (id) => {
+    const idLibro = libroId.find(e => e === id)
+    dispatch(deleteLibroById(idLibro));
+    setData(data.filter((item) => item.id !== id));
+    dispatch(getAllBooks());
+  };
 
   useEffect(() => {
     dispatch(getAllBooks());
