@@ -55,9 +55,10 @@ const FormeditLector = () => {
     
     e.preventDefault();
     dispatch(editLector(input, idLector));
-    alert("El lector fue editado exitosamente!");
+
     dispatch(getAllLectores());
     navigate("/admin");
+    dispatch(getAllLectores());
   };
 
   return (

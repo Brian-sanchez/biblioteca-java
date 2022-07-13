@@ -54,9 +54,9 @@ const FormEditCopia = () => {
     e.preventDefault();
     dispatch(editCopia(input, idCopia));
 
-    alert("La copia a sido editada exitosamente!");
     dispatch(getAllCopias());
     navigate("/admin");
+    dispatch(getAllCopias());
   };
 
   return (

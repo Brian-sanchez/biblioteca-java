@@ -19,7 +19,7 @@ const FormAddLibro = () => {
 
   const [input, setInput] = useState({
     titulo: "",
-    tipo: "",
+    tipoLibro: "",
     editorial: "",
     anyo: 2022,
     image: "",
@@ -75,7 +75,7 @@ const FormAddLibro = () => {
     dispatch(addLibro(input));
     setInput({
       titulo: "",
-      tipo: "",
+      tipoLibro: "",
       editorial: "",
       anyo: 2022,
       image: "",
@@ -84,9 +84,9 @@ const FormAddLibro = () => {
       autorNacimiento: ""
     });
 
-    alert("El libro a sido subido exitosamente!");
     dispatch(getAllBooks());
-    navigate("/admin/libros");
+    navigate("/admin");
+    dispatch(getAllBooks());
   };
 
   return (
@@ -126,14 +126,14 @@ const FormAddLibro = () => {
 
             <div className="formInput">
               <label>Tipo</label>
-              <select name="tipo" onChange={handleInputChange} value={input.tipo}>
+              <select name="tipoLibro" onChange={handleInputChange} value={input.tipoLibro}>
                 <option value="">Seleccione el tipo del libro</option>
                 <option value="NOVELA">Novela</option>
                 <option value="TEATRO">Teatro</option>
                 <option value="POESIA">Poesia</option>
                 <option value="ENSAYO">Ensayo</option>
               </select>
-              { errors.tipo && <p className="errors">{errors.tipo}</p> }
+              { errors.tipoLibro && <p className="errors">{errors.tipoLibro}</p> }
             </div>
 
             <div className="formInput">
@@ -194,8 +194,8 @@ export function validateForm(input) {
     errors.titulo = "El titulo del libro es requerido";
   };
 
-  if (!input.tipo) {
-    errors.tipo = "El tipo del libro es requerido";
+  if (!input.tipoLibro) {
+    errors.tipoLibro = "El tipo del libro es requerido";
   };
 
   if (!input.editorial) {

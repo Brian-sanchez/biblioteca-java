@@ -162,7 +162,7 @@ export function addLibro(libro) {
       console.log(response);
       swalStyle.fire(
         'Excelente!',
-        'El libro ha sido creado exitosamente',
+        'El libro ha sido subido con exito',
         'success'
       )
     } catch (error) {

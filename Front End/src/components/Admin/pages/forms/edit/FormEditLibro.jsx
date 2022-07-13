@@ -21,7 +21,7 @@ const FormeditLibro = () => {
 
   const [input, setInput] = useState({
     titulo: `${libroFilter[0].titulo}`,
-    tipo: `${libroFilter[0].tipo}`,
+    tipoLibro: `${libroFilter[0].tipoLibro}`,
     editorial: `${libroFilter[0].editorial}`,
     anyo: `${libroFilter[0].anyo}`,
     image: `${libroFilter[0].image}`,
@@ -71,9 +71,9 @@ const FormeditLibro = () => {
     e.preventDefault();
     dispatch(editLibro(input, idLibro));
 
-    alert("El libro a sido editado exitosamente!");
     dispatch(getAllBooks());
-    navigate("/admin/libros");
+    navigate("/admin");
+    dispatch(getAllBooks());
 };
 
   return (
@@ -111,12 +111,12 @@ const FormeditLibro = () => {
 
               <div className="formInput">
                 <label>Tipo</label>
-                <select name="tipo" onChange={handleInputChange} value={input.tipo}>
+                <select name="tipoLibro" onChange={handleInputChange} value={input.tipoLibro}>
                   <option>Seleccione el tipo del libro</option>
-                  <option value="novela">Novela</option>
-                  <option value="teatro">Teatro</option>
-                  <option value="poesia">Poesia</option>
-                  <option value="ensayo">Ensayo</option>
+                  <option value="NOVELA">Novela</option>
+                  <option value="TEATRO">Teatro</option>
+                  <option value="POESIA">Poesia</option>
+                  <option value="ENSAYO">Ensayo</option>
                 </select>
               </div>
 

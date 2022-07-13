@@ -57,6 +57,7 @@ const FormAddCopia = () => {
 
     dispatch(getAllCopias());
     navigate("/admin");
+    dispatch(getAllCopias());
   };
 
   return (

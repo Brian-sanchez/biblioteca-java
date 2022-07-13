@@ -58,9 +58,9 @@ const FormAddLector = () => {
       direccion: ""
     });
 
-    alert("El lector a sido creado exitosamente!");
     dispatch(getAllLectores());
-    navigate("/admin/lectores");
+    navigate("/admin");
+    dispatch(getAllLectores());
   };
 
   return (

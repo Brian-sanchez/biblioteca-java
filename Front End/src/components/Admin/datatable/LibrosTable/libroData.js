@@ -18,7 +18,7 @@ export const librosColumns = [
     width: 180,
   },
   {
-    field: "tipo",
+    field: "tipoLibro",
     headerName: "Tipo",
     width: 80,
   },

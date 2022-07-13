@@ -113,6 +113,7 @@ const FormEditPrestamo = () => {
 
     dispatch(getAllPrestamos());
     navigate("/admin");
+    dispatch(getAllPrestamos());
   };
 
   return (

@@ -30,7 +30,6 @@ const Home = () => {
     const books = useSelector((state) => state.allBooks);
     const [isClick, setIsClick] = useState(false);
     const [isClickLend, setIsClickLend] = useState(false);
-    console.log(isClickLend)
 
     const handleOnClick = () => {
         setIsClick(!isClick);
