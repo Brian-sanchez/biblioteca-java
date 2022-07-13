@@ -66,7 +66,7 @@ public class PrestamoServiceImpl implements PrestamoService {
 		Lector lector = lectorRepository.findById(prestamo.getLector().getId()).get();
 		Libro libro = libroRepository.findById(prestamo.getLibro().getId()).get();
 		long lectorId = lector.getId();
-
+		
 		var cantPrestamosActivosLector = this.prestamosActivosPorLector(lectorId).size();
 		
 		if (cantPrestamosActivosLector >= Prestamo.LIMITE_PRESTAMOS) {			
@@ -102,8 +102,9 @@ public class PrestamoServiceImpl implements PrestamoService {
 	@Override
 	public Prestamo editPrestamo(long id, Prestamo prestamo) {
 		Prestamo prestamoDB = prestamoRepository.findById(id).get();
-		prestamoDB.getCopia().setEstado(EstadoCopia.BIBLIOTECA);
 		BeanUtils.copyProperties(prestamo, prestamoDB, "id");
+		prestamoDB.setInicio(prestamo.getInicio());
+		prestamoDB.setFin(prestamo.getFin());
 		return prestamoRepository.save(prestamoDB);
 	}
 
@@ -133,19 +134,5 @@ public class PrestamoServiceImpl implements PrestamoService {
 		}
 
 		return prestamos;
-	}
-
-	@Override
-	public void prestamosRetrasados() {
-		var allPrestamos = this.getAllPrestamos();
-		
-		List<Prestamo> prestamos = new ArrayList<>();
-		
-		for (Prestamo prestamo : allPrestamos) {
-			if (prestamo.getFin().compareTo(LocalDate.now()) == 0 || prestamo.getFin().compareTo(LocalDate.now()) < 0) {
-				prestamo.getCopia().setEstado(EstadoCopia.RETRASO);
-				prestamos.add(prestamo);
-			}
-		}
 	}
 }

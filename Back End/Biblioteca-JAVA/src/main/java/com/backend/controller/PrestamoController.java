@@ -48,12 +48,6 @@ public class PrestamoController {
 		return prestamoService.prestamosActivos();
 	}
 	
-	/*
-	@GetMapping(value = "/prestamos/retrasados")
-	public List<Prestamo> retrasados() {
-		return prestamoService.prestamosRetrasados();
-	}
-	*/
 	@GetMapping(value = "/prestamos/lector/{id}")
 	public List<Prestamo> prestamosPorLector(@PathVariable(value = "id") long id) {
 		return prestamoService.prestamosPorLector(id);

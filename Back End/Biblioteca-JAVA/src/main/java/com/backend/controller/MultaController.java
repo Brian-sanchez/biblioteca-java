@@ -32,7 +32,7 @@ public class MultaController {
 	}
 	
 	@PostMapping(value = "/multas")
-	public String add(@RequestBody Multa multa) {
+	public Multa add(@RequestBody Multa multa) {
 		return multaService.addMulta(multa);
 	}
 	
@@ -45,24 +45,4 @@ public class MultaController {
 	public void delete(@PathVariable("id") long id) {
 		multaService.deleteMultaById(id);
 	}
-	
-//	@GetMapping("/update/{id}")
-//	public String showFormForUpdate(@PathVariable( value = "id") long id, Model model) {
-//
-//		Multa multaa = multa.getMultaById(id);
-//		model.addAttribute("multaa", multaa);
-//		return "update_multa";
-//	}
-//	
-//	@GetMapping("/delete/{id}")
-//	public String deleteCourse(@PathVariable (value = "id") long id) {
-//		this.multa.deleteMultaById(id);
-//		return "redirect:/";
-//	}
-//	
-//	@PostMapping
-//	public String agregar(@RequestBody Multa m) {
-//		multa.saveMulta(m);
-//		return "redirect:/";
-//	}
 }

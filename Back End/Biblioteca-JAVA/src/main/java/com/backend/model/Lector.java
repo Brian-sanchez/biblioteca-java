@@ -9,10 +9,13 @@ public class Lector {
 	@Column
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+    
     @Column
 	private String nombre;
+    
     @Column
 	private String telefono;
+    
     @Column
 	private String direccion;
     

@@ -10,7 +10,6 @@ public interface PrestamoService {
 	List<Prestamo> prestamosPorLector(long id);
 	List<Prestamo> prestamosActivos();
 	List<Prestamo> prestamosActivosPorLector(long id);
-	void prestamosRetrasados();
 	ResponseEntity<Optional<Prestamo>> getPrestamoById(long id);
 	Prestamo editPrestamo(long id, Prestamo prestamo);
 	Prestamo addPrestamo(Prestamo prestamo);

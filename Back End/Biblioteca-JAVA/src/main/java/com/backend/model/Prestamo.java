@@ -21,10 +21,10 @@ public class Prestamo {
     @Column
 	private LocalDate fin;
     
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_lector")
 	private Lector lector;
-	
+
 	@OneToOne
 	@JoinColumn(name = "id_libro")
 	private Libro libro;

@@ -8,7 +8,7 @@ import com.backend.model.Multa;
 public interface MultaService {
 	List<Multa> getAllMultas();
 	ResponseEntity<Optional<Multa>> getMultaById(long id);
-	String addMulta(Multa multa);
+	Multa addMulta(Multa multa);
 	Multa editMulta(long id, Multa multa);
 	void deleteMultaById(long id);
 }

@@ -10,37 +10,30 @@ public class Libro {
 	@Column
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+    
     @Column
 	private String titulo;
-    @Column
-	private String tipo;
+    
     @Column
 	private String editorial;
+    
     @Column
 	private int anyo;
+    
     @Column
 	private String image;
+    
     @Column
 	private String autor;
+    
     @Column
 	private String autorNacionalidad;
+    
     @Column
 	private Date autorNacimiento;
+    
 	@Enumerated(EnumType.STRING)
 	private TipoLibro tipoLibro;
-    
-    /*
-     
-    @NotNull
-	@OneToOne
-	@JoinColumn(name = "id_autor")
-	private Autor autor;
-		
-	@NotNull
-	@Enumerated(EnumType.STRING)
-	private TipoLibro tipo;
-      
-     */
     
 	public long getId() {
 		return id;
@@ -56,14 +49,6 @@ public class Libro {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-	
-	public String getTipo() {
-		return tipo;
-	}
-	
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 	
 	public String getEditorial() {

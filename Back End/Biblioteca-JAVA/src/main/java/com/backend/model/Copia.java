@@ -16,8 +16,11 @@ public class Copia {
 	@Column
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+    
+    // Tendria que ser relacionado con libro, no llegue a implementarlo :(
 	@Column
     private long idLibro;
+	
 	@Enumerated(EnumType.STRING)
 	private EstadoCopia estado;
 	
