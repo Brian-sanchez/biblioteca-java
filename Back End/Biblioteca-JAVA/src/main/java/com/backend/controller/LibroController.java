@@ -23,10 +23,13 @@ import com.backend.service.PrestamoService;
 public class LibroController {
 	@Autowired
 	LibroService libroService;
+	
 	@Autowired
 	PrestamoService prestamoService;
+	
 	@Autowired
 	LectorService lectorService;
+	
 	@Autowired
 	CopiaService copiaService;
 	
