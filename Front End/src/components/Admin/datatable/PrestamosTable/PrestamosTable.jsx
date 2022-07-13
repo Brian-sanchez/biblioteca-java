@@ -69,6 +69,7 @@ const PrestamosTable = () => {
 
     dispatch(getAllPrestamos());
     navigate("/admin");
+    dispatch(getAllPrestamos());
   }
 
   useEffect(() => {
