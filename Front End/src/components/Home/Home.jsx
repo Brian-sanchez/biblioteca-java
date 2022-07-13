@@ -240,14 +240,6 @@ const Home = () => {
             </div>
         </section>
 
-        <section className="newsletter">
-            <form action="">
-                <h3>Suscribete para enterarte de los ultimos libros</h3>
-                <input type="email" name="" placeholder="Ingrese su email" id="" className="box" />
-                <input type="submit" value="Suscribirse" className="btn" />
-            </form>
-        </section>
-
         <section className="footer">
             <div className="box-container">
                 <div className="box">

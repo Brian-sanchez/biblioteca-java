@@ -137,7 +137,7 @@ const FormEditPrestamo = () => {
 
               <div className="formInput">
                 <label>Elegir el lector que pedira el prestamo</label>
-                <select onChange={handleInputChangeLector} value={input.lector.id}>
+                <select onChange={handleInputChangeLector} value={input.lector.id} disabled={true}>
                   <option>Seleccione el lector</option>
                       {
                         lectores && lectores.map(b => (
@@ -150,7 +150,7 @@ const FormEditPrestamo = () => {
 
               <div className="formInput">
                 <label>Elegir el libro</label>
-                <select onChange={handleInputChangeLibro} value={input.libro.id}>
+                <select onChange={handleInputChangeLibro} value={input.libro.id} disabled={true}>
                   <option>Seleccione el libro</option>
                       {
                         libros && libros.map(b => (
@@ -163,7 +163,7 @@ const FormEditPrestamo = () => {
 
               <div className="formInput">
                 <label>Elegir copía del libro</label>
-                <select onChange={handleInputChangeCopia} value={input.copia.id}>
+                <select onChange={handleInputChangeCopia} value={input.copia.id} disabled={true}>
                   <option>Seleccione la copia</option>
                     {
                       copiaByIdLibro.length !== 0 ? copiaByIdLibro.map(b => (

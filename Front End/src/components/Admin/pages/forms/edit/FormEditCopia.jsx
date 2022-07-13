@@ -15,11 +15,12 @@ const FormEditCopia = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const libros = useSelector((state) => state.allBooks);
+  const copias = useSelector((state) => state.allCopias);
   const { idCopia } = useParams();
-  const libroFilter = libros.filter(e => e.id === Number(idCopia));
+  const libroFilter = copias.filter(e => e.id === Number(idCopia));
 
   const [input, setInput] = useState({
-    idLibro: `${libroFilter[0].id}`
+    idLibro: `${libroFilter[0].idLibro}`
   });
 
   const [errors, setErrors] = useState({ name: "" });

@@ -112,6 +112,8 @@ export function validateForm(input) {
 
   if (!input.nombre) {
     errors.nombre = "El nombre del lector es requerido";
+  } else if (/^\d+$/.test(input.nombre)) {
+    errors.nombre = "No escribir numeros"
   }
 
   if (!input.direccion) {
