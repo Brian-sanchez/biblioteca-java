@@ -15,7 +15,6 @@ const LectorTable = () => {
     return l.id;
   });
   
-  console.log(lectorID)
   const [data, setData] = useState(lectores);
 
   const actionColumn = [
@@ -38,7 +37,6 @@ const LectorTable = () => {
   const handleDelete = (id) => {
     const idLector = lectorID.find(e => e === id)
     dispatch(deleteLectorById(idLector));
-    console.log(idLector);
     setData(data.filter((item) => item.id !== id));
     dispatch(getAllLectores());
   };

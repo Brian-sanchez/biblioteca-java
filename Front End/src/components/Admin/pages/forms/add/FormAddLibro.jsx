@@ -28,8 +28,6 @@ const FormAddLibro = () => {
     autorNacimiento: ""
   });
 
-  console.log(input)
-
   const [errors, setErrors] = useState({ name: "" });
 
   const handleInputChange = (e) => {

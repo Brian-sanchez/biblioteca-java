@@ -21,7 +21,9 @@ const Sidebar = () => {
           <span className="logo">Admin</span>
         </Link>
       </div>
+      
       <hr />
+
       <div className="center">
         <ul>
           <Link to="/admin" style={{ textDecoration: "none" }} onClick={scrollToUp}>
@@ -30,36 +32,42 @@ const Sidebar = () => {
               <span>Dashboard</span>
             </li>
           </Link>
+
           <Link to="/admin/lectores" style={{ textDecoration: "none" }} onClick={scrollToUp}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Lectores</span>
             </li>
           </Link>
+
           <Link to="/admin/libros" style={{ textDecoration: "none" }} onClick={scrollToUp}>
             <li>
               <MenuBookIcon className="icon" />
               <span>Libros</span>
             </li>
           </Link>
+
           <Link to="/admin/copias" style={{ textDecoration: "none" }} onClick={scrollToUp}> 
             <li>
               <ContentCopyIcon className="icon" />
               <span>Copias</span>
             </li>
           </Link>
+          
           <Link to="/admin/prestamos" style={{ textDecoration: "none" }} onClick={scrollToUp}>
             <li>
               <HandshakeIcon className="icon" />
               <span>Prestamos</span>
             </li>
           </Link>
+
           <Link to="/admin/multas" style={{ textDecoration: "none" }} onClick={scrollToUp}>
             <li>
               <DoDisturbIcon className="icon" />
               <span>Multas</span>
             </li>
           </Link>
+
           <Link to="/" style={{ textDecoration: "none" }} onClick={scrollToUp}> 
             <li>
               <HomeIcon className="icon" />

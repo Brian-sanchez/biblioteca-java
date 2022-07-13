@@ -199,5 +199,4 @@ export function validateForm(input) {
   return errors;
 };
 
-
 export default FormAddPrestamo;

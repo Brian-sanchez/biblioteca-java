@@ -33,28 +33,19 @@ const Home = () => {
 
     const handleOnClick = () => {
         setIsClick(!isClick);
-    }
+    };
 
     const handleOnClickLend = () => {
         setIsClickLend(!isClickLend);
-    }
+    };
 
     const handleCloseLend = () => {
         setIsClickLend(false);
-    }
+    };
 
     const handleClose = () => {
         setIsClick(false);
-    }
-    /*
-    window.onload = () => {
-        function loader() {
-            document.querySelector('.loader-container').classList.add('active');
-        };
-
-        setTimeout(loader, 4000);
     };
-    */
 
     useEffect(() => {
         dispatch(getAllBooks());
@@ -64,7 +55,7 @@ const Home = () => {
     <div>
         <header className="header">
             <div className="header-1">
-                <a href="#" className="logo">Biblioteca</a>
+                <a href="#home" className="logo">Biblioteca</a>
                 
                 <nav className="header-navbar">
                     <a href="#home" className="menu">Inicio</a>
@@ -73,11 +64,6 @@ const Home = () => {
                 </nav>
             </div>
         </header>
-
-        <nav className="bottom-navbar">
-            <a href="#home" className="fas fa-home"></a>
-            <a href="#books" className="fas fa-list"></a>
-        </nav>
     
         <div className={`lend-form-container ${isClickLend ? 'active' : ''}`}>
             <FaTimes id="close-lend-btn" className="fas fa-times" onClick={handleCloseLend}></FaTimes>

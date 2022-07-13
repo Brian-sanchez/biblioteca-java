@@ -16,7 +16,6 @@ const FormeditLector = () => {
   const lectores = useSelector((state) => state.allLectores);
   const { idLector } = useParams();
   const lectorFilter = lectores.filter(e => e.id === Number(idLector));
-  console.log(lectorFilter[0].id)
 
   const [input, setInput] = useState({
     nombre: `${lectorFilter[0].nombre}`,
