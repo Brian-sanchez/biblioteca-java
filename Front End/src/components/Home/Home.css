@@ -503,13 +503,6 @@ section {
     color: #fff;
 }
 
-.newsletter {
-    background: url(../../assets/images/letter-bg.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
 .newsletter form {
     max-width: 45rem;
     margin-left: auto;
